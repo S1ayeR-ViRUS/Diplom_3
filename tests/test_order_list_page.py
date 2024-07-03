@@ -5,14 +5,14 @@ from pages.order_list_page import OrderListPage
 
 
 class TestOrderListPage:
-    @allure.description('Проверяем, что по клику на заказ открывается модальное окно с деталями заказа')
+    @allure.title('Проверяем, что по клику на заказ открывается модальное окно с деталями заказа')
     def test_open_modal_window_of_order_by_click_on_first_order_in_list(self, driver):
         order_list_page = OrderListPage(driver)
         order_list_page.open_order_list_page()
         order_list_page.click_in_first_order_in_list()
         assert order_list_page.get_text_from_modal_window() == 'Cостав'
 
-    @allure.description('Проверяем, что заказы пользователя из раздела "История заказов" '
+    @allure.title('Проверяем, что заказы пользователя из раздела "История заказов" '
                         'отображаются на странице "Лента заказов"')
     def test_users_order_is_exist_in_order_list(self, login):
         order_list_page = OrderListPage(login)
@@ -26,7 +26,7 @@ class TestOrderListPage:
         order_texts = order_list_page.collect_order_numbers()
         assert number_order_history in order_texts
 
-    @allure.description('Проверяем, что при создании нового заказа счётчик "Выполнено за всё время" увеличивается')
+    @allure.title('Проверяем, что при создании нового заказа счётчик "Выполнено за всё время" увеличивается')
     def test_counter_all_orders_increases_after_new_order(self, login):
         order_list_page = OrderListPage(login)
         main_page = MainPage(login)
@@ -38,7 +38,7 @@ class TestOrderListPage:
         all_time_count_after = order_list_page.show_all_time_done_orders()
         assert all_time_count_after > all_time_count_before
 
-    @allure.description('Проверяем, что при создании нового заказа счётчик "Выполнено за сегодня" увеличивается')
+    @allure.title('Проверяем, что при создании нового заказа счётчик "Выполнено за сегодня" увеличивается')
     def test_counter_today_orders_increases_after_new_order(self, login):
         order_list_page = OrderListPage(login)
         main_page = MainPage(login)
@@ -50,7 +50,7 @@ class TestOrderListPage:
         today_time_count_after = order_list_page.show_today_done_orders()
         assert today_time_count_after > today_time_count_before
 
-    @allure.description('Проверяем, что при после оформления заказа его номер появляется в разделе "В работе"')
+    @allure.title('Проверяем, что после оформления заказа его номер появляется в разделе "В работе"')
     def test_number_of_new_order_increases_in_work(self, login):
         order_list_page = OrderListPage(login)
         main_page = MainPage(login)

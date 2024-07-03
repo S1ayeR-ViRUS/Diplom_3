@@ -5,7 +5,7 @@ from pages.main_page import MainPage
 
 
 class TestForgotPasswordPage:
-    @allure.description('Проверка перехода на страницу восстановления пароля по клику на ссылку "Восстановить пароль"')
+    @allure.title('Проверка перехода на страницу восстановления пароля по клику на ссылку "Восстановить пароль"')
     def test_go_to_forgot_password_page_click_on_link_recover_page(self, driver):
         forgot_password_page = ForgotPasswordPage(driver)
         main_page = MainPage(driver)
@@ -13,7 +13,7 @@ class TestForgotPasswordPage:
         forgot_password_page.go_to_forgot_password_page()
         assert driver.current_url == Urls.URL_MAIN_PAGE + Urls.URL_FORGOT_PASSWORD
 
-    @allure.description('Проверка, что после ввода почты и клика по кнопке "Восстановить" '
+    @allure.title('Проверка, что после ввода почты и клика по кнопке "Восстановить" '
                         'происходит переход на форму "Восстановление пароля"')
     def test_put_email_for_recovery(self, driver):
         forgot_password_page = ForgotPasswordPage(driver)
@@ -24,8 +24,7 @@ class TestForgotPasswordPage:
 
         assert element_text == 'Восстановление пароля'
 
-    @allure.description(
-        'Проверка, что клик по кнопке показать/скрыть пароль делает поле активным — подсвечивает его"')
+    @allure.title('Проверка, что клик по кнопке показать/скрыть пароль делает поле активным — подсвечивает его"')
     def test_click_on_button_visibility_open_password(self, driver):
         forgot_password_page = ForgotPasswordPage(driver)
         forgot_password_page.open_forgot_password_page()

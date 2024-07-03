@@ -1,7 +1,5 @@
 import allure
-
 from data import Urls
-from locators.locators_main_page import LocatorsMainPage
 from locators.locators_order_list_page import LocatorsOrderListPage
 from pages.base_page import BasePage
 
@@ -17,7 +15,7 @@ class OrderListPage(BasePage):
 
     @allure.step('Переходим на главную страницу')
     def go_to_main_page(self):
-        self.click_element_with_wait(LocatorsMainPage.BUTTON_CONSTRUCTOR)
+        self.click_element_with_wait(LocatorsOrderListPage.BUTTON_CONSTRUCTOR)
 
     @allure.step('Кликаем на первый заказ в списке заказов')
     def click_in_first_order_in_list(self):

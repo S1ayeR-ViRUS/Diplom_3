@@ -12,4 +12,4 @@ class LocatorsOrderListPage:
     TODAY_COUNT = (By.XPATH,
                    '/descendant::p[@class="OrderFeed_number__2MbrQ text text_type_digits-large"][position() = (2)]')
     ORDER_NUMBER_IN_WORK = (By.XPATH, '//ul[@class = "OrderFeed_orderListReady__1YFem OrderFeed_orderList__cBvyi"]/li')
-
+    BUTTON_CONSTRUCTOR = (By.XPATH, '//li/a[@href = "/"]')
